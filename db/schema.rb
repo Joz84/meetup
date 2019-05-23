@@ -10,10 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_161053) do
+ActiveRecord::Schema.define(version: 2019_05_21_161744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "speaker_id"
+    t.bigint "planning_id"
+    t.integer "slot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["planning_id"], name: "index_bookings_on_planning_id"
+    t.index ["speaker_id"], name: "index_bookings_on_speaker_id"
+  end
+
+  create_table "plannings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_plannings_on_user_id"
+  end
+
+  create_table "speakers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.text "description"
+    t.string "company"
+    t.string "post"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +54,7 @@ ActiveRecord::Schema.define(version: 2019_05_21_161053) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "plannings"
+  add_foreign_key "bookings", "speakers"
+  add_foreign_key "plannings", "users"
 end
