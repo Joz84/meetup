@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 2019_05_21_161744) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "speaker_id"
-    t.bigint "planning_id"
+    t.bigint "user_id"
     t.integer "slot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["planning_id"], name: "index_bookings_on_planning_id"
     t.index ["speaker_id"], name: "index_bookings_on_speaker_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "plannings", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_05_21_161744) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "plannings"
   add_foreign_key "bookings", "speakers"
+  add_foreign_key "bookings", "users"
   add_foreign_key "plannings", "users"
 end

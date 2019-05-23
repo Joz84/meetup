@@ -17,6 +17,13 @@
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
+  <% Booking.slots.each do |slot, position| %>
+    <%= f.simple_fields_for :bookings, Booking.new do |booking| %>
+      <%= booking.input :speaker_id, collection: Speaker.all, as: :radio_buttons %>
+      <%= booking.input :slot, input_html: { value: position }, as: :hidden %>
+    <% end %>
+  <% end %>
+
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
