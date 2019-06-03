@@ -1,32 +1,137 @@
-<h2>Sign up</h2>
+<div class="bg-white py-150">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+    <h2 class="text-center">Le <span class="span-yellow">Formulaire d'inscription</span></h2>
 
-  <% Booking.slots.each do |slot, position| %>
-    <%= f.simple_fields_for :bookings, Booking.new do |booking| %>
-      <%= booking.input :speaker_id, collection: Speaker.all, as: :radio_buttons %>
-      <%= booking.input :slot, input_html: { value: position }, as: :hidden %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          input_html: { autocomplete: "email" }%>
+              <%= f.input :password,
+                          required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          input_html: { autocomplete: "new-password" } %>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-inputs">
+              <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { }%>
+              <%= f.input :last_name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { } %>
+              <%= f.input :post,
+                          required: true,
+                          autofocus: true,
+                          input_html: { } %>
+              <%= f.input :company,
+                          required: true,
+                          autofocus: true,
+                          input_html: { } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="bg-yellow py-150">
+      <div class="container">
+
+        <h2 class="text-center">Vos <span>Attentes</span></h2>
+        <div class="row">
+          <div class="col-lg-12">
+            <%= f.input :motivated,
+                        label: "Pourquoi souhaitez-vous participer à cet événement ?",
+                        collection: User.motivations,
+                        as: :radio_buttons,
+                        required: true,
+                        autofocus: true,
+                        input_html: { } %>
+          </div>
+          <div class="col-lg-12">
+            <%= f.input :interested,
+                        label: "Seriez-vous intéressé.e par notre formation intensive au développement web de 9 semaines ?",
+                        collection: User.interests,
+                        as: :radio_buttons,
+                        required: true,
+                        autofocus: true,
+                        input_html: { } %>
+          </div>
+          <div class="col-lg-12">
+            <%= f.input :informed,
+                        label: "Souhaitez-vous en savoir plus sur les ateliers et conférences gratuits organisés par Le Wagon ?",
+                        collection: User.informations,
+                        as: :radio_buttons,
+                        required: true,
+                        autofocus: true,
+                        input_html: { } %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="py-150">
+      <div class="container">
+        <h2 class="text-center">Le <span class="span-yellow">Planning</span></h2>
+        <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt asperiores illo commodi repudiandae, harum, cumque, doloremque laborum dolorum, cum facere enim autem rem quidem. Hic eius sequi veritatis cum labore!</p>
+        <div class="d-flex hours-line">
+          <% Booking.slots.each do |slot| %>
+            <div class="coco3"><%= slot.first %></div>
+          <% end %>
+        </div>
+        <div class="d-flex">
+          <div>
+            <% Speaker.all.each do |speaker| %>
+              <div class="tab-title"><b><%= speaker.name %></b><br><%= speaker.company %></div>
+            <% end %>
+          </div>
+          <% Booking.slots.each do |slot, position| %>
+            <div class="tab-col">
+              <%= f.simple_fields_for :bookings, Booking.new do |booking| %>
+                <%= booking.input :speaker_id, collection: Speaker.all.map{|s| [s.id, "."]}, label_method: :last, value_method: :first, as: :radio_buttons, label: " " %>
+                <%= booking.input :slot, input_html: { value: position }, as: :hidden %>
+              <% end %>
+              <div class="tab-bottom-absolute"></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+      <div class="form-actions text-center">
+        <%= f.button :submit, "Finaliser l'inscription", class: "btn-red" %>
+      </div>
     <% end %>
-  <% end %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%#= render "devise/shared/links" %>
+
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+  <div id="booking-ids" data-bookingids="<%= Booking.all.map { |b| "#user_bookings_attributes_#{b.slot}_speaker_id_#{b.speaker_id}"}.join(" ") %>" ></div>
+
+
+<script>
+  var bookingIds = document.querySelector("#booking-ids").dataset.bookingids.split(" ");
+  bookingIds.forEach((bookingId) => {
+    var element = document.querySelector(`${bookingId}`);
+    element.remove();
+  });
+</script>
+
+
+

@@ -11,3 +11,420 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  // text-align: center;
+  // padding-top: 70px;
+}
+
+.py-150 {
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+i {
+  font-size: 34px;
+}
+
+.cta-box {
+  font-size: 28px;
+  font-weight: bold;
+  min-height: 320px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px grey;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.time-box {
+  border-radius: 3px;
+  background: #FFE9E6;
+  font-weight: bold;
+  position: absolute;
+  top: -100px;
+  left: calc(50% - 125px);
+  width: 250px;
+  padding: 20px 30px;
+  .day {
+    font-size: 65px;
+    margin: 0px;
+    color: red;
+  }
+  .month {
+    font-size: 42px;
+    margin: 0px;
+    color: red;
+  }
+}
+
+.btn-red {
+  padding: 12px 25px;
+  font-size: 15px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 1px 1px 5px grey;
+  &:hover {
+    color: white;
+    opacity: 0.8;
+  }
+}
+
+.btn-white {
+  padding: 12px 25px;
+  font-size: 15px;
+  background: white;
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 1px 1px 5px grey;
+  &:hover {
+    color: red;
+    opacity: 0.8;
+  }
+}
+
+.wrapper {
+  position: relative;
+  padding: 150px 0px;
+  overflow: visible;
+
+}
+
+.wrapper-circle {
+  position: absolute;
+  top: -125px;
+  overflow: hidden;
+  height: 270px;
+  width: 210px;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  position: absolute;
+  border: 5px solid;
+  border-radius: 50%;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.wrapper-circle.left {
+  left: 0px;
+}
+
+.wrapper-circle.right {
+  right: 0px;
+}
+
+.circle.left {
+  left: -60px;
+}
+
+.circle.right {
+  right: -60px;
+}
+
+.navbar {
+  position: absolute;
+  z-index: 10;
+  background: transparent;
+  width: 100%;
+  height: 70px;
+  // border-bottom: 3px solid;
+}
+
+// .navbar-wrapper {
+//   height: 70px;
+// }
+
+.logo {
+  height: 50px;
+}
+
+.item {
+  margin: 0 10px;
+}
+
+.item:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.banner {
+  color: black;
+  // text-align: center;
+  height: 100vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.banner p {
+  // font-size: 25px;
+  // font-weight: lighter;
+  color: black;
+  // opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.logo-big {
+  height: 120px;
+}
+
+.frame {
+  border: solid 1px grey;
+  border-radius: 3px;
+  padding: 7px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  &:hover {
+    background: #FDF5E7;
+    border: solid 1px #FDF5E7;
+    color: red;
+  }
+  p, h5 {
+    margin: 0px;
+  }
+}
+
+.card-img-top {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  background: grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: black;
+}
+
+.footer i {
+ color: black;
+}
+
+.footer a {
+ color: black;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.3;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
+
+// custom
+
+/*Les polices*/
+/*Récupérer cette propriété sur Google fonts : https://fonts.google.com/*/
+// h1, h2, h3, h4, h5, h6, i { font-family: 'Abril Fatface', cursive; }
+// p { font-family: 'arial'; }
+
+/*La couleur dominante*/
+h1, h2, h3, h4, h5, h6, i, .item { color: black; }
+
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 100px;
+  span {
+    color: red;
+    background: #FFE9E6;
+    padding: 9px 12px;
+    border-radius: 3px;
+  }
+  .span-yellow {
+    color: #FFC96B;
+    background: #FDF5E7;
+  }
+}
+
+h4 {
+  font-size: 150px;
+  font-weight: bold;
+  color: white;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+/*Le fond de couleur*/
+/*Récupérer ces propriétés sur Ui Gradients: https://uigradients.com*/
+.bg-color {
+  background: #FDF5E7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FEFBF5, #FDF5E7);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FEFBF5, #FDF5E7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.bg-yellow {
+  background: #FDF5E7;
+}
+
+.max-height-200px {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+
+.img-shadow {
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px grey;
+}
+
+.border-circle {
+  border-radius: 50%;
+}
+
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 100% 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: rgba(255, 0, 0, 1);
+}
+
+.pulse {
+  border-radius: 25px;
+  line-height: 25px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  margin-left: 30px;
+
+  transform: translate(-50%,-50%);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,0,0, 0.2);
+    border-radius: 50px;
+    opacity: 0;
+  }
+
+  &:before {
+    transform: scale(1);
+    animation: pulse 3s infinite linear;
+
+  }
+
+  &:after {
+    animation: pulse 3s 2s infinite linear;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.carousel-flex {
+  height: 250px;
+}
+
+.carousel-desc {
+  p {
+  color: black;
+  font-size: 14px;
+  text-shadow: 2px 2px 5px white;
+  }
+}
+
+
+.tab-col {
+  width: 75px;
+  padding: 20px 43px 0px 30px;
+  background: #FDF5E7;
+  border: 1px solid black;
+  position: relative;
+  .collection_radio_buttons {
+    height: 30px;
+    margin-bottom: 50px;
+    color: white;
+  }
+}
+
+.tab-bottom-absolute {
+  position: absolute;
+  bottom: -1px;
+  width: 75px;
+  height: 47px;
+  background: white;
+  border-top: 2px solid black;
+  left: -1px;
+}
+
+.tab-title {
+  height: 80px;
+  background: #FFE9E6;
+  border: 2px solid black;
+  padding: 15px;
+  width: 230px;
+}
+
+.coco3 {
+  width: 75px;
+  // margin-left: 230px;
+}
+
+.hours-line {
+  margin-left: 220px;
+  font-weight: bold;
+}
+
+.col-form-label {
+  font-weight: bold;
+}
