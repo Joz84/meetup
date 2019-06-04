@@ -7,8 +7,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
-        <h1>Founder Summit 2019</h1>
-        <p>L'événement qui rassemble les différents experts de la tech bordelaise pour vous aider à créer ou à développer vos projets.</p>
+        <h1>Founder Summit Bordeaux 2019</h1>
+        <p style="margin-bottom: 120px">L'événement qui rassemble les différents experts de la tech bordelaise pour vous aider à créer ou à développer vos projets.</p>
       </div>
       <div class="col-lg-5">
         <div class="cta-box">
@@ -18,8 +18,12 @@
           </div>
           <p>Venez nombreux</p>
           <div class="d-flex justify-content-between">
-            <a href="" class="btn btn-red">Inscription</a>
-            <a href="" class="btn btn-white">En savoir plus</a>
+            <% if user_signed_in? %>
+              <%= link_to "Nouvelle inscription", destroy_user_session_path, method: :delete , class: "btn btn-red"%>
+            <% else %>
+              <%= link_to "Inscription", new_user_registration_path , class: "btn btn-red"%>
+            <% end %>
+            <a href="https://www.lewagon.com/bordeaux" class="btn btn-white">En savoir plus</a>
           </div>
         </div>
       </div>
@@ -41,11 +45,15 @@
         <br>
         Le Founder Summit vous apportera les réponses dont vous avez besoin à travers des entretiens individuels avec l’expert métier choisi en amont par vous-même.
         <br>
-        Vous disposerez de 10 minutes en tête-à-tête avec l’intervenant de votre choix pour exposer vos problématiques.
+        Vous disposerez de 15 minutes en tête-à-tête avec l’intervenant de votre choix pour exposer vos problématiques.
         <br>
         <br>
         Inscrivez-vous à cette demi-journée d’incubation durant laquelle vous pourrez rencontrer des experts métiers de domaines divers, tels que la comptabilité, la levée de fonds, la communication ou encore le marketing.</p>
-        <%= link_to "Inscription", root_path, class: "btn btn-red" %>
+        <% if user_signed_in? %>
+          <%= link_to "Nouvelle inscription", destroy_user_session_path, method: :delete , class: "btn btn-red"%>
+        <% else %>
+          <%= link_to "Inscription", new_user_registration_path , class: "btn btn-red"%>
+        <% end %>
       </div>
     </div>
   </div>
@@ -74,7 +82,7 @@
           </div>
         </div>
         <h3>Rencontre avec l'expert</h3>
-        <p>Vous disposez de 10 minutes avec le fondateur choisi pour discuter de vos problématiques et lui poser toutes les questions nécessaires.</p>
+        <p>Vous disposez de 15 minutes avec le fondateur choisi pour discuter de vos problématiques et lui poser toutes les questions nécessaires.</p>
       </div>
       <div class="col-lg-4">
         <h4 class="text-center">3</h4>
@@ -84,7 +92,7 @@
           </div>
         </div>
         <h3>Retour d'expérience</h3>
-        <p>Une fois les 10 minutes terminées, vous disposez des réponses à vos questions et pouvez passer à un autre intervenant selon vos besoins.</p>
+        <p>Une fois les 15 minutes terminées, vous disposez des réponses à vos questions et pouvez passer à un autre intervenant selon vos besoins.</p>
       </div>
     </div>
   </div>
@@ -104,7 +112,7 @@
           </div>
         <% end %>
       </div>
-      <div class="col-lg-9">
+      <div class="col-lg-9 d-none d-md-block">
 
         <div class="bd-example">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">

@@ -21,6 +21,20 @@
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+
+
+    <script>
+      var radios = document.querySelectorAll('.radio_buttons');
+      radios.forEach((radio) => {
+        var check = radio.checked;
+        radio.addEventListener("click", () => {
+          if ( check === radio.checked ) { radio.checked = false; }
+          check = radio.checked;
+        });
+      });
+    </script>
+
+
   </body>
 </html>
 

@@ -166,8 +166,8 @@ speaker1.save
 
 speaker1 = Speaker.new(
   first_name: "Aidan",
-  last_name: "O’Brien",
-  post: "Developer" ,
+  last_name: "O'Brien",
+  post: "CEO & Senior Project Manager" ,
   company: "Free Lance",
   description: " Aidan est un expert en transformation numérique chez Dell Technologies, il y occupe le poste de Senior Partner.
 Il est également le PDG et co-foundateur d’une start-up. il vous conseillera sur votre produit te ses fonctionnalités.",

@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   def configure_permitted_parameters
     user_data = [
+      :first_name,
+      :last_name,
+      :post,
+      :company,
+      :motivated,
+      :informed,
+      :interested,
       bookings_attributes: [
         :id,
         :slot,
