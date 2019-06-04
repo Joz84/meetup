@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     user_data = [
       :first_name,
       :last_name,
+      :phone,
       :post,
       :company,
       :motivated,

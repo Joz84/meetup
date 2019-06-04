@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :motivated, presence: true
   validates :informed, presence: true
   validates :interested, presence: true
+  validates :phone, presence: true
 
   after_create :send_welcome_email
 
