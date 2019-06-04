@@ -91,7 +91,7 @@ speaker1 = Speaker.new(
   first_name: "Marjorie",
   last_name: "Boyer",
   post: "Growth Hacker",
-  company: "Freelance",
+  company: "Growth Hacker",
   description: "Passionnée de nouvelles technologies, d’entrepreneuriat, blockchain et de développement personnel, Marjorie s’est lancé depuis deux ans en tant que Growth Hacker en freelance. Elle a fait partie de l’association Growth Hacking France qui regroupe des professionnels aguerris du Growth Hacking.",
   tag1: "Growth hacking",
   tag2: "Blockchain"
@@ -168,7 +168,7 @@ speaker1 = Speaker.new(
   first_name: "Aidan",
   last_name: "O'Brien",
   post: "CEO & Senior Project Manager" ,
-  company: "Free Lance",
+  company: "DELL",
   description: " Aidan est un expert en transformation numérique chez Dell Technologies, il y occupe le poste de Senior Partner.
 Il est également le PDG et co-foundateur d’une start-up. il vous conseillera sur votre produit te ses fonctionnalités.",
   tag1: "Start-ups",
@@ -176,3 +176,18 @@ Il est également le PDG et co-foundateur d’une start-up. il vous conseillera 
   )
 speaker1.remote_photo_url = "https://res.cloudinary.com/dpilgpat0/image/upload/v1559570187/speakers/FS_Aidan.png"
 speaker1.save
+
+speaker1 = Speaker.new(
+  first_name: "Bertrand",
+  last_name: "Bussac",
+  post: "CEO" ,
+  company: "Le Wagon Bordeaux",
+  description: " Co-fondateur du Wagon Bordeaux, vice-président de FrenchTech Bordeaux, développeur de la Singularity University. Passionné d'entrepreneuriat, d'innovation, de conception de projets et d'enseignement, Bertrand vous accompagnera dans vos projets",
+  tag1: "Start-ups",
+  tag2: "Gestion entreprise"
+  )
+speaker1.remote_photo_url = "https://res.cloudinary.com/dpilgpat0/image/upload/v1559644690/speakers/beber.jpg"
+speaker1.save
+
+
+
