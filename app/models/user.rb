@@ -8,6 +8,16 @@ class User < ApplicationRecord
                                 reject_if: proc { |attributes| attributes[:speaker_id].blank? },
                                 allow_destroy: true
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :post, presence: true
+  validates :company, presence: true
+  validates :motivated, presence: true
+  validates :informed, presence: true
+  validates :interested, presence: true
+
+  after_create :send_welcome_email
+
   enum motivations: {
     "J'ai ou je vais créer mon entreprise" => 0,
     "Je souhaite changer de carrière et travailler dans la tech" => 1,
@@ -27,4 +37,15 @@ class User < ApplicationRecord
     "Oui, avec plaisir !" => 0,
     "Non merci." => 1
   }
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+  end
+
 end

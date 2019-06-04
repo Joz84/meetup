@@ -1,6 +1,9 @@
 class Booking < ApplicationRecord
   belongs_to :speaker
   belongs_to :user, inverse_of: :bookings
+
+  validates :user, uniqueness: { scope: :speaker }
+
   enum slots: {
     "14h00" => 0,
     "14h15" => 1,
