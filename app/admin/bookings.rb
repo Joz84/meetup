@@ -13,4 +13,20 @@ ActiveAdmin.register Booking do
 #   permitted
 # end
 
+index do
+    selectable_column
+    column :speaker
+    column (:slot) {|booking| Booking.slots.key(booking.slot)}
+    column :user
+    actions
+  end
+
+  show do |p|
+    attributes_table do
+      row :speaker
+      row (:slot) {|p| Booking.slots.key(p.slot)}
+      row :user
+    end
+  end
+
 end
