@@ -190,5 +190,9 @@ speaker1.remote_photo_url = "https://res.cloudinary.com/dpilgpat0/image/upload/v
 speaker1.save
 
 
+puts 'Create Admin User admin@pena.fr'
+User.create!(email: 'admin@lewagon.org',password: 'azerty',password_confirmation: 'azerty',admin: true,first_name: "Julie",last_name: "Perier",post: "Expert" ,company: "Le Wagon", phone:"0600000000", interested: 0, informed: 0, motivated: 0)
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
