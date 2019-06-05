@@ -10,7 +10,7 @@
 
   <div class="d-none d-md-block">
     <div class="d-flex align-items-center justify-content-between">
-      <%= link_to "Intervenants", "#intervenants", class: "navbar-mihivai-item navbar-mihivai-link" %>
+      <%= link_to "Intervenants", "/#intervenants", class: "navbar-mihivai-item navbar-mihivai-link" %>
       <%= link_to "Contact", "mailto:bordeaux@lewagon.org", class: "navbar-mihivai-item navbar-mihivai-link" %>
       <% if user_signed_in? %>
         <%= link_to "Nouvelle inscription", destroy_user_session_path, method: :delete , class: "navbar-mihivai-item btn btn-red"%>
